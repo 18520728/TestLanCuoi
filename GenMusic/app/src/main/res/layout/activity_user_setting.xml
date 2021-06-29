@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserSetting"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarusersetting"
+        android:layout_alignParentTop="true"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.Toolbar
+                android:fitsSystemWindows="true"
+                android:id="@+id/toolbarUserSetting"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+
+            </androidx.appcompat.widget.Toolbar>
+        </RelativeLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLayoutUser2"
+        android:layout_below="@+id/appbarusersetting"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/user_bg"
+        android:padding="@dimen/_8dp">
+
+        <ImageView
+            android:id="@+id/imgUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_8dp"
+            android:background="@null"
+            android:padding="@dimen/_8dp"
+            android:src="@drawable/ic_account"></ImageView>
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="64dp"
+            android:text="Tên User"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_24dp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/userEmail"
+            android:layout_width="198dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userName"
+            android:layout_alignStart="@+id/imgUser"
+            android:layout_marginStart="59dp"
+            android:layout_marginTop="6dp"
+            android:text="Email"
+            android:textColor="#FFFFFF" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RlayoutPassword"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_56dp"
+        android:layout_below="@+id/RLayoutUser2"
+        android:background="@drawable/selected_effect"
+        android:layout_marginTop="@dimen/_8dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:src="@drawable/arrow_next"></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đổi mật khẩu"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/_16dp"
+            ></TextView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLayoutUuDaiCaNhan"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_56dp"
+        android:layout_below="@+id/RlayoutPassword"
+        android:background="@drawable/selected_effect"
+        android:layout_marginTop="@dimen/_8dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:src="@drawable/arrow_next"></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ưu đãi cá nhân"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/_16dp"
+            ></TextView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLayoutMuaVip"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_56dp"
+        android:layout_below="@+id/RLayoutUuDaiCaNhan"
+        android:background="@drawable/selected_effect"
+        android:layout_marginTop="@dimen/_8dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:src="@drawable/arrow_next"></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mua VIP"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/_16dp"
+            ></TextView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/imgLogout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_56dp"
+        android:layout_below="@+id/RLayoutMuaVip"
+        android:background="@drawable/selected_effect"
+        android:layout_marginTop="@dimen/_8dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:src="@drawable/arrow_next"></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đăng xuất"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/_16dp"
+            ></TextView>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/framelayoutMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:name="com.example.genmusic.MinimizedPlayerFragment"
+            tools:layout="@layout/fragment_minimized_player"></fragment>
+    </FrameLayout>
+
+</RelativeLayout>

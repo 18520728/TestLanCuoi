@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/relativeLayoutDSBaiHat"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="5dp">
+
+        <TextView
+            android:id="@+id/textviewdanhsachindex"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:text="1"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp">
+
+        </TextView>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toEndOf="@+id/textviewdanhsachindex"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
+            android:layout_toStartOf="@+id/imageviewluotthichdanhsachbaihat">
+
+            <TextView
+                android:id="@+id/textviewtenbaihat"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textviewdanhsachindex"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="Tên ca khúc"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:textColor="#030303"
+                android:textSize="16sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/textviewtencasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textviewtenbaihat"
+                android:layout_toRightOf="@id/textviewdanhsachindex"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="Ca Sĩ"
+                android:textColor="#979797"
+                android:textSize="13sp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:maxWidth="200dp">
+
+            </TextView>
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/imageviewluotthichdanhsachbaihat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/ic_love"
+            android:background="@null">
+
+        </ImageView>
+</RelativeLayout>

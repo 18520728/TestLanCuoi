@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".NewsActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="NEWS"
+        android:textColor="@color/purple_200"
+        android:textStyle="bold"
+        android:paddingLeft="26dp"
+        android:textSize="20sp" />
+
+
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/purple_search_background"
+        android:columnCount="2"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:rowCount="2">
+
+        <EditText
+            android:id="@+id/etQuery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:background="@drawable/purple_search_background"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:padding="10dp"
+            android:hint="Search"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:layout_columnWeight="1"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:background="@drawable/purple_search_background"
+            android:drawableRight="@drawable/ic_baseline_search_24"
+            android:paddingRight="20dp"
+            android:text=""
+            app:backgroundTint="@color/purple_200" />
+
+    </GridLayout>
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/swipeRefresh">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:id="@+id/recyclerView"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    
+
+
+</LinearLayout>
