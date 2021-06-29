@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/menuTrangChu" android:title="@string/menu_trang_chu" android:icon="@drawable/round_home_black_24"></item>
-    <item android:id="@+id/menuTheLoai" android:title="@string/menu_the_loai" android:icon="@drawable/round_album_black_24"></item>
-    <item android:id="@+id/menuXepHang" android:title="@string/menu_xep_hang" android:icon="@drawable/round_trending_up_black_24"></item>
-    <item android:id="@+id/menuCaNhan" android:title="@string/menu_ca_nhan" android:icon="@drawable/round_library_music_black_24"></item>
-</menu>
