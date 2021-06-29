@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#7C7C7C</color>
+    <color name="light_grey">#D1D1D1</color>
     <color name="purple">#C829AF</color>
 
     <color name= "SurfaceColor">#FFCC00</color>
@@ -100,7 +101,4 @@
     <color name="flatGreenEnd">#00BF84</color>
 <!--    transparent-->
     <color name="transparent">#80000000</color>
-    
-    
-
 </resources>

@@ -2,6 +2,7 @@ package com.example.genmusic;
 
         import android.content.Intent;
         import android.os.Bundle;
+        import android.util.Log;
         import android.util.Patterns;
         import android.view.LayoutInflater;
         import android.view.View;
@@ -15,6 +16,8 @@ package com.example.genmusic;
         import androidx.fragment.app.Fragment;
 
         import com.example.genmusic.Model.User;
+        import com.example.genmusic.bxhFragment.APIService;
+        import com.example.genmusic.bxhFragment.Dataservice;
         import com.google.android.gms.tasks.OnCompleteListener;
         import com.google.android.gms.tasks.Task;
         import com.google.firebase.auth.AuthResult;
@@ -23,6 +26,10 @@ package com.example.genmusic;
         import com.google.firebase.database.FirebaseDatabase;
 
         import java.util.regex.Pattern;
+
+        import retrofit2.Call;
+        import retrofit2.Callback;
+        import retrofit2.Response;
 
 public class SignupTabFragment extends Fragment {
     private EditText editTextName, editTextEmail, editTextPassword, editTextCfpassword;
@@ -110,9 +117,20 @@ public class SignupTabFragment extends Fragment {
                     mDatabase = FirebaseDatabase.getInstance("https://gen-music-c99c9-default-rtdb.asia-southeast1.firebasedatabase.app/");
                     mDbRef = mDatabase.getReference();
                     mDbRef.child(mAuth.getCurrentUser().getUid()).setValue(user);
+                    Dataservice dataservice = APIService.getService();
+                    Call<String> callback = dataservice.InsertUser(email);
+                    callback.enqueue(new Callback<String>() {
+                        @Override
+                        public void onResponse(Call<String> call, Response<String> response) {
+                            String ketqua = response.body();
+                            Log.d("dangky","" + ketqua);
+                        }
 
+                        @Override
+                        public void onFailure(Call<String> call, Throwable t) {
 
-
+                        }
+                    });
                 } else {
                     Toast.makeText(getActivity(), "Đăng ký thất bại! Vui lòng thử lại!", Toast.LENGTH_SHORT).show();
                 }

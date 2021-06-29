@@ -36,6 +36,14 @@ public class Baihatuathich implements Parcelable{
         linkbaihat = in.readString();
         luotthich = in.readString();
     }
+    public Baihatuathich(String id, String ten, String hinh, String cs, String link, String thich) {
+        idbaihat = id;
+        tenbaihat = ten;
+        hinhbaihat = hinh;
+        casi = cs;
+        linkbaihat = link;
+        luotthich = thich;
+    }
 
     public static final Creator<Baihatuathich> CREATOR = new Creator<Baihatuathich>() {
         @Override

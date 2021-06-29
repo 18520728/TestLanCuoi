@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,11 +7,27 @@
     android:orientation="vertical"
     tools:context=".caNhanFragment.TheLoaiYeuThichActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarTheLoaiYeuThich"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbartheloaiyeuthich"
+        android:fitsSystemWindows="true"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"></androidx.appcompat.widget.Toolbar>
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:layout_alignParentTop="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.Toolbar
+                android:fitsSystemWindows="true"
+                android:id="@+id/toolbarTheLoaiYeuThich"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+
+            </androidx.appcompat.widget.Toolbar>
+        </RelativeLayout>
+    </com.google.android.material.appbar.AppBarLayout>
     <androidx.core.widget.NestedScrollView
+        android:layout_below="@+id/appbartheloaiyeuthich"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <androidx.recyclerview.widget.RecyclerView
@@ -21,8 +37,16 @@
             android:layout_marginHorizontal="10dp">
         </androidx.recyclerview.widget.RecyclerView>
     </androidx.core.widget.NestedScrollView>
-
-
-
-
-</LinearLayout>
+    <FrameLayout
+        android:id="@+id/framelayoutMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:name="com.example.genmusic.MinimizedPlayerFragment"
+            tools:layout="@layout/fragment_minimized_player"></fragment>
+    </FrameLayout>
+</RelativeLayout>

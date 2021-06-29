@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import static com.example.genmusic.MainActivity.mangbaihat;
 
 public class Fragment_Play_DanhsachbaiHat extends Fragment {
     View view;
@@ -21,9 +22,9 @@ public class Fragment_Play_DanhsachbaiHat extends Fragment {
     public View onCreateView(@NonNull  LayoutInflater inflater,@Nullable  ViewGroup container, @Nullable  Bundle savedInstanceState) {
        view=inflater.inflate(R.layout.fragmentplaydanhsachbaihat,container,false);
         recyclerViewplaynhac=view.findViewById(R.id.recyclerviewPlaybaihat);
-       if(PlayNhacActivity.mangbaihat.size()>0){
+       if(mangbaihat.size()>0){
 
-           playnhacAdapter=new PlaynhacAdapter(getActivity(),PlayNhacActivity.mangbaihat);
+           playnhacAdapter=new PlaynhacAdapter(getActivity(),mangbaihat);
            recyclerViewplaynhac.setLayoutManager(new LinearLayoutManager(getActivity()));
            recyclerViewplaynhac.setAdapter(playnhacAdapter);
        }

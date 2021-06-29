@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.genmusic.PlayNhacActivity;
 import com.example.genmusic.R;
 import com.example.genmusic.bxhFragment.Baihatuathich;
+import com.example.genmusic.caNhanFragment.BaiHatYeuThich;
+import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -30,7 +32,9 @@ public class BaihatuathichAdapter extends  RecyclerView.Adapter<BaihatuathichAda
     Context context;
     ArrayList<Baihatuathich> baihatuathichArrayList;
     private Dataservice dataservice= APIService.getService();
-
+    //lấy tên đăng nhập từ firebase
+    private FirebaseAuth auth= FirebaseAuth.getInstance();
+    private String tendangnhap;
     public BaihatuathichAdapter(@NonNull Context context, ArrayList<Baihatuathich> baihatuathichArrayList) {
         this.context = context;
         this.baihatuathichArrayList = baihatuathichArrayList;
@@ -52,7 +56,8 @@ public class BaihatuathichAdapter extends  RecyclerView.Adapter<BaihatuathichAda
         Picasso.with(context).load(baihatuathich.getHinhbaihat()).into(holder.imghinh);
 
         //Kiểm tra bài hát đã có trong baihatyeuthich hay chưa
-        Call<String> callbackKiemTra = dataservice.KiemTraBaiHatYeuThich(baihatuathich.getIdbaihat());
+        tendangnhap = auth.getCurrentUser().getEmail();
+        Call<String> callbackKiemTra = dataservice.KiemTraBaiHatYeuThich(tendangnhap, baihatuathich.getIdbaihat());
         callbackKiemTra.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
@@ -80,20 +85,6 @@ public class BaihatuathichAdapter extends  RecyclerView.Adapter<BaihatuathichAda
                 Intent intent=new Intent(context, PlayNhacActivity.class);
                 intent.putExtra("cakhuc",baihatuathichArrayList.get(position));
                 context.startActivity(intent);
-
-                //++luotnghe
-                Call<String> callbackLuotNghe=dataservice.UpdateLuotThich(baihatuathich.getIdbaihat());
-                callbackLuotNghe.enqueue(new Callback<String>() {
-                    @Override
-                    public void onResponse(Call<String> call, Response<String> response) {
-                        Log.d("hiep","ket qua: " + response.body());
-                    }
-
-                    @Override
-                    public void onFailure(Call<String> call, Throwable t) {
-
-                    }
-                });
             }
         });
 
@@ -103,8 +94,7 @@ public class BaihatuathichAdapter extends  RecyclerView.Adapter<BaihatuathichAda
             public void onClick(View v) {
 
                 //truyền tendangnhap, idbaihat
-                Call<String> callback = dataservice.InsertOrDeleteBaiHatYeuThich(baihatuathich.getIdbaihat());
-                baihatuathichArrayList.remove(position);
+                Call<String> callback = dataservice.InsertOrDeleteBaiHatYeuThich(tendangnhap, baihatuathich.getIdbaihat());
                 callback.enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
@@ -120,7 +110,6 @@ public class BaihatuathichAdapter extends  RecyclerView.Adapter<BaihatuathichAda
                         }
                         else if(kq.equals("successful_delete"))
                         {
-                            notifyItemRemoved(position);
                             Toast.makeText(context, "Đã xóa " + baihatuathich.getTenbaihat() + " khỏi Bài hát yêu thích", Toast.LENGTH_SHORT).show();
                             holder.imgluotthich.setImageResource(R.drawable.ic_love);
                         }

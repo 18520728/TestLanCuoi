@@ -87,5 +87,16 @@
 
         </androidx.recyclerview.widget.RecyclerView>
     </androidx.core.widget.NestedScrollView>
-
+    <FrameLayout
+        android:id="@+id/framelayoutMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:name="com.example.genmusic.MinimizedPlayerFragment"
+            tools:layout="@layout/fragment_minimized_player"></fragment>
+    </FrameLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

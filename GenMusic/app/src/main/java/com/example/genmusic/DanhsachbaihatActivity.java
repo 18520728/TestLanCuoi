@@ -9,14 +9,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.os.StrictMode;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -24,10 +27,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.genmusic.Service.MusicService;
 import com.example.genmusic.bxhFragment.APIService;
 import com.example.genmusic.bxhFragment.Baihatuathich;
 import com.example.genmusic.bxhFragment.Dataservice;
 import com.example.genmusic.bxhFragment.bxh;
+import com.example.genmusic.caNhanFragment.BaiHatYeuThich;
 import com.example.genmusic.theLoaiFragment.Album;
 import com.example.genmusic.theLoaiFragment.TheLoai;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -44,7 +49,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DanhsachbaihatActivity extends AppCompatActivity {
+import static com.example.genmusic.MainActivity.isServiceConnected;
+import static com.example.genmusic.MainActivity.musicService;
+
+public class DanhsachbaihatActivity extends AppCompatActivity implements MinimizedPlayerFragment.ISendDataListener {
     CoordinatorLayout coordinatorLayout;
     CollapsingToolbarLayout collapsingToolbarLayout;
     Toolbar toolbar;
@@ -58,6 +66,21 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
     private ImageView imgThemPlaylistYeuThich;
     private Dataservice dataservice= APIService.getService();
     ArrayList<Baihatuathich> mangbaihat;
+
+    //service
+    private ServiceConnection serviceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            MusicService.MusicBinder musicBinder = (MusicService.MusicBinder) service;
+            musicService = musicBinder.getMusicService();
+            isServiceConnected = true;
+        }
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            musicService = null;
+            isServiceConnected = false;
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -333,5 +356,17 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void sendNextSongData(Baihatuathich baihat) {
+        Intent intentService = new Intent(DanhsachbaihatActivity.this, MusicService.class);
+        //Gửi bài hát sang service
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("baihat", baihat);
+        intentService.putExtras(bundle);
+
+        startService(intentService);
+        bindService(intentService, serviceConnection, Context.BIND_AUTO_CREATE);
     }
 }

@@ -121,7 +121,9 @@ public class LoginActivity extends AppCompatActivity {
 
         InitiallizeFacebook();
         if(mAuth.getCurrentUser()!=null){
-            startActivity(new Intent(LoginActivity.this,MainActivity.class));
+            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+            intent.putExtra("login","login");
+            startActivity(intent);
             finish();
         }
 
@@ -165,7 +167,9 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             FirebaseUser user=mAuth.getCurrentUser();
-                            startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                            intent.putExtra("login","login");
+                            startActivity(intent);
 
                         }
                         else{
@@ -204,7 +208,8 @@ public class LoginActivity extends AppCompatActivity {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
             // Signed in successfully, show authenticated UI.
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+            intent.putExtra("login","login");
             startActivity(intent);
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
@@ -225,7 +230,8 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             FirebaseUser user=mAuth.getCurrentUser();
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                            intent.putExtra("login","login");
                             startActivity(intent);
                         }
                     }

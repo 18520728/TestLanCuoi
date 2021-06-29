@@ -65,12 +65,13 @@ public class CaNhanFragment extends Fragment {
         MobileAds.initialize(context, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
-
                 mAdView = view.findViewById(R.id.adView);
                 AdRequest adRequest = new AdRequest.Builder().build();
                 mAdView.loadAd(adRequest);
             }
         });
+
+
         return view;
     }
 }

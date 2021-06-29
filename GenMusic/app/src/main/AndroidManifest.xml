@@ -8,35 +8,39 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
     <application
-
+        android:name=".Service.MusicApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
-
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GenMusic">
-        <activity android:name=".trangChuFragment.FeedBack"></activity>
-        <activity android:name=".trangChuFragment.UpdatePassword" /> <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+
+        <service android:name=".Service.MusicService"/>
+        <receiver android:name=".Service.MusicReceiver"/>
+        <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
+            android:value="ca-app-pub-3940256099942544~3347511713"/>
 
-        <activity android:name=".caNhanFragment.TheLoaiYeuThichActivity" />
+        <activity android:name=".caNhanFragment.TheLoaiYeuThichActivity"></activity>
         <activity android:name=".caNhanFragment.AlbumYeuThichActivity" />
         <activity android:name=".theLoaiFragment.DanhSachTheLoaiActivity" />
         <activity android:name=".theLoaiFragment.DanhSachAlbumActivity" />
-        <activity android:name=".trangChuFragment.ResetPassword" />
+        <activity android:name=".trangChuFragment.ResetPassword"></activity>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".PlayNhacActivity" />
+        <activity android:name=".PlayNhacActivity"
+            android:launchMode="singleTask"/>
         <activity android:name=".DanhsachbaihatActivity" />
         <activity android:name=".Setting" />
         <activity android:name=".UserSetting" />

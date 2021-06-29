@@ -134,7 +134,7 @@
         </ImageButton>
         <ImageButton
             android:background="@null"
-            android:src="@drawable/iconrepeat"
+            android:src="@drawable/iconrepeat_white"
             android:scaleType="fitXY"
             android:id="@+id/imagebuttonrepeat"
             android:layout_marginRight="15dp"
