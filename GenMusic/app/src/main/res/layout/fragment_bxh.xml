@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@color/white">
+    <TextView
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/textviewtitlechart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Top bảng xếp hạng"
+        android:textStyle="bold"
+
+        >
+
+    </TextView>
+
+    <ListView
+        android:id="@+id/listviewchart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textviewtitlechart">
+
+    </ListView>
+    <TextView
+        android:text="Cập nhật thêm nhiều bảng xếp hạng trong tương lai"
+        android:textSize="19sp"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@drawable/iconmoreplaylist"
+        android:paddingLeft="5dp"
+        android:layout_below="@id/listviewchart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#0a0a0a"
+        android:layout_marginBottom="8dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:layout_marginTop="8dp"
+        android:id="@+id/textviewviewmorechart">
+
+    </TextView>
+    <TextView
+        android:id="@+id/textviewtopbaihatuathich"
+        android:layout_below="@id/textviewviewmorechart"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:text="Top bài hát được thích nhiều nhất"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </TextView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerviewtopbaihatuathich"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/textviewtopbaihatuathich"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+
+
+</RelativeLayout>

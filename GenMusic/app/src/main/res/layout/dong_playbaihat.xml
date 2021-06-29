@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="17sp"
+            android:textColor="#ffff"
+            android:text="1"
+            android:layout_margin="10dp"
+            android:id="@+id/textviewplaynhacindex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+        <TextView
+            android:textSize="17sp"
+            android:maxWidth="250dp"
+            android:textColor="#ffff"
+            android:singleLine="true"
+            android:text="Ten ca khuc"
+            android:ellipsize="end"
+            android:layout_toRightOf="@+id/textviewplaynhacindex"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textviewplaynhactenbaihat">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textviewplaynhactencasi"
+            android:layout_below="@+id/textviewplaynhactenbaihat"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/textviewplaynhacindex"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="Ca Si"
+            android:textColor="#ffff"
+            android:textSize="12sp"></TextView>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
